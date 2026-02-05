@@ -1,2 +1,5 @@
-# crossplane-provider-upjet-azure-libsonnet
-crossplane-provider-upjet-azure jsonnet library
+# crossplane-provider-upjet-azure Jsonnet library
+
+This library is generated with [`k8s`](https://github.com/jsonnet-libs/k8s).
+
+[Docs](https://jsonnet-libs.github.io/crossplane-provider-upjet-azure-libsonnet)

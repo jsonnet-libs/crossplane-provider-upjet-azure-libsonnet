@@ -1,0 +1,1847 @@
+---
+permalink: /upbound-provider-azure/namespaced/streamanalytics/v1beta1/outputMSSQL/
+---
+
+# streamanalytics.v1beta1.outputMSSQL
+
+"OutputMSSQL is the Schema for the OutputMSSQLs API. Manages a Stream Analytics Output to Microsoft SQL Server Database."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withAuthenticationMode(authenticationMode)`](#fn-specforproviderwithauthenticationmode)
+    * [`fn withDatabase(database)`](#fn-specforproviderwithdatabase)
+    * [`fn withMaxBatchCount(maxBatchCount)`](#fn-specforproviderwithmaxbatchcount)
+    * [`fn withMaxWriterCount(maxWriterCount)`](#fn-specforproviderwithmaxwritercount)
+    * [`fn withName(name)`](#fn-specforproviderwithname)
+    * [`fn withResourceGroupName(resourceGroupName)`](#fn-specforproviderwithresourcegroupname)
+    * [`fn withServer(server)`](#fn-specforproviderwithserver)
+    * [`fn withStreamAnalyticsJobName(streamAnalyticsJobName)`](#fn-specforproviderwithstreamanalyticsjobname)
+    * [`fn withTable(table)`](#fn-specforproviderwithtable)
+    * [`fn withUser(user)`](#fn-specforproviderwithuser)
+    * [`obj spec.forProvider.databaseRef`](#obj-specforproviderdatabaseref)
+      * [`fn withName(name)`](#fn-specforproviderdatabaserefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderdatabaserefwithnamespace)
+      * [`obj spec.forProvider.databaseRef.policy`](#obj-specforproviderdatabaserefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderdatabaserefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderdatabaserefpolicywithresolve)
+    * [`obj spec.forProvider.databaseSelector`](#obj-specforproviderdatabaseselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderdatabaseselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderdatabaseselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderdatabaseselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderdatabaseselectorwithnamespace)
+      * [`obj spec.forProvider.databaseSelector.policy`](#obj-specforproviderdatabaseselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderdatabaseselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderdatabaseselectorpolicywithresolve)
+    * [`obj spec.forProvider.passwordSecretRef`](#obj-specforproviderpasswordsecretref)
+      * [`fn withKey(key)`](#fn-specforproviderpasswordsecretrefwithkey)
+      * [`fn withName(name)`](#fn-specforproviderpasswordsecretrefwithname)
+    * [`obj spec.forProvider.resourceGroupNameRef`](#obj-specforproviderresourcegroupnameref)
+      * [`fn withName(name)`](#fn-specforproviderresourcegroupnamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderresourcegroupnamerefwithnamespace)
+      * [`obj spec.forProvider.resourceGroupNameRef.policy`](#obj-specforproviderresourcegroupnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderresourcegroupnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderresourcegroupnamerefpolicywithresolve)
+    * [`obj spec.forProvider.resourceGroupNameSelector`](#obj-specforproviderresourcegroupnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderresourcegroupnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderresourcegroupnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderresourcegroupnameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderresourcegroupnameselectorwithnamespace)
+      * [`obj spec.forProvider.resourceGroupNameSelector.policy`](#obj-specforproviderresourcegroupnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderresourcegroupnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderresourcegroupnameselectorpolicywithresolve)
+    * [`obj spec.forProvider.serverRef`](#obj-specforproviderserverref)
+      * [`fn withName(name)`](#fn-specforproviderserverrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderserverrefwithnamespace)
+      * [`obj spec.forProvider.serverRef.policy`](#obj-specforproviderserverrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderserverrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderserverrefpolicywithresolve)
+    * [`obj spec.forProvider.serverSelector`](#obj-specforproviderserverselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderserverselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderserverselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderserverselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderserverselectorwithnamespace)
+      * [`obj spec.forProvider.serverSelector.policy`](#obj-specforproviderserverselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderserverselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderserverselectorpolicywithresolve)
+    * [`obj spec.forProvider.streamAnalyticsJobNameRef`](#obj-specforproviderstreamanalyticsjobnameref)
+      * [`fn withName(name)`](#fn-specforproviderstreamanalyticsjobnamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderstreamanalyticsjobnamerefwithnamespace)
+      * [`obj spec.forProvider.streamAnalyticsJobNameRef.policy`](#obj-specforproviderstreamanalyticsjobnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderstreamanalyticsjobnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderstreamanalyticsjobnamerefpolicywithresolve)
+    * [`obj spec.forProvider.streamAnalyticsJobNameSelector`](#obj-specforproviderstreamanalyticsjobnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforproviderstreamanalyticsjobnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforproviderstreamanalyticsjobnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforproviderstreamanalyticsjobnameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforproviderstreamanalyticsjobnameselectorwithnamespace)
+      * [`obj spec.forProvider.streamAnalyticsJobNameSelector.policy`](#obj-specforproviderstreamanalyticsjobnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforproviderstreamanalyticsjobnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforproviderstreamanalyticsjobnameselectorpolicywithresolve)
+    * [`obj spec.forProvider.tableRef`](#obj-specforprovidertableref)
+      * [`fn withName(name)`](#fn-specforprovidertablerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidertablerefwithnamespace)
+      * [`obj spec.forProvider.tableRef.policy`](#obj-specforprovidertablerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidertablerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidertablerefpolicywithresolve)
+    * [`obj spec.forProvider.tableSelector`](#obj-specforprovidertableselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidertableselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidertableselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidertableselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidertableselectorwithnamespace)
+      * [`obj spec.forProvider.tableSelector.policy`](#obj-specforprovidertableselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidertableselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidertableselectorpolicywithresolve)
+    * [`obj spec.forProvider.userRef`](#obj-specforprovideruserref)
+      * [`fn withName(name)`](#fn-specforprovideruserrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovideruserrefwithnamespace)
+      * [`obj spec.forProvider.userRef.policy`](#obj-specforprovideruserrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovideruserrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovideruserrefpolicywithresolve)
+    * [`obj spec.forProvider.userSelector`](#obj-specforprovideruserselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovideruserselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovideruserselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovideruserselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovideruserselectorwithnamespace)
+      * [`obj spec.forProvider.userSelector.policy`](#obj-specforprovideruserselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovideruserselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovideruserselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withAuthenticationMode(authenticationMode)`](#fn-specinitproviderwithauthenticationmode)
+    * [`fn withDatabase(database)`](#fn-specinitproviderwithdatabase)
+    * [`fn withMaxBatchCount(maxBatchCount)`](#fn-specinitproviderwithmaxbatchcount)
+    * [`fn withMaxWriterCount(maxWriterCount)`](#fn-specinitproviderwithmaxwritercount)
+    * [`fn withName(name)`](#fn-specinitproviderwithname)
+    * [`fn withResourceGroupName(resourceGroupName)`](#fn-specinitproviderwithresourcegroupname)
+    * [`fn withServer(server)`](#fn-specinitproviderwithserver)
+    * [`fn withStreamAnalyticsJobName(streamAnalyticsJobName)`](#fn-specinitproviderwithstreamanalyticsjobname)
+    * [`fn withTable(table)`](#fn-specinitproviderwithtable)
+    * [`fn withUser(user)`](#fn-specinitproviderwithuser)
+    * [`obj spec.initProvider.databaseRef`](#obj-specinitproviderdatabaseref)
+      * [`fn withName(name)`](#fn-specinitproviderdatabaserefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderdatabaserefwithnamespace)
+      * [`obj spec.initProvider.databaseRef.policy`](#obj-specinitproviderdatabaserefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderdatabaserefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderdatabaserefpolicywithresolve)
+    * [`obj spec.initProvider.databaseSelector`](#obj-specinitproviderdatabaseselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderdatabaseselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderdatabaseselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderdatabaseselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderdatabaseselectorwithnamespace)
+      * [`obj spec.initProvider.databaseSelector.policy`](#obj-specinitproviderdatabaseselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderdatabaseselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderdatabaseselectorpolicywithresolve)
+    * [`obj spec.initProvider.passwordSecretRef`](#obj-specinitproviderpasswordsecretref)
+      * [`fn withKey(key)`](#fn-specinitproviderpasswordsecretrefwithkey)
+      * [`fn withName(name)`](#fn-specinitproviderpasswordsecretrefwithname)
+    * [`obj spec.initProvider.resourceGroupNameRef`](#obj-specinitproviderresourcegroupnameref)
+      * [`fn withName(name)`](#fn-specinitproviderresourcegroupnamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderresourcegroupnamerefwithnamespace)
+      * [`obj spec.initProvider.resourceGroupNameRef.policy`](#obj-specinitproviderresourcegroupnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderresourcegroupnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderresourcegroupnamerefpolicywithresolve)
+    * [`obj spec.initProvider.resourceGroupNameSelector`](#obj-specinitproviderresourcegroupnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderresourcegroupnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderresourcegroupnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderresourcegroupnameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderresourcegroupnameselectorwithnamespace)
+      * [`obj spec.initProvider.resourceGroupNameSelector.policy`](#obj-specinitproviderresourcegroupnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderresourcegroupnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderresourcegroupnameselectorpolicywithresolve)
+    * [`obj spec.initProvider.serverRef`](#obj-specinitproviderserverref)
+      * [`fn withName(name)`](#fn-specinitproviderserverrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderserverrefwithnamespace)
+      * [`obj spec.initProvider.serverRef.policy`](#obj-specinitproviderserverrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderserverrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderserverrefpolicywithresolve)
+    * [`obj spec.initProvider.serverSelector`](#obj-specinitproviderserverselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderserverselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderserverselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderserverselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderserverselectorwithnamespace)
+      * [`obj spec.initProvider.serverSelector.policy`](#obj-specinitproviderserverselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderserverselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderserverselectorpolicywithresolve)
+    * [`obj spec.initProvider.streamAnalyticsJobNameRef`](#obj-specinitproviderstreamanalyticsjobnameref)
+      * [`fn withName(name)`](#fn-specinitproviderstreamanalyticsjobnamerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderstreamanalyticsjobnamerefwithnamespace)
+      * [`obj spec.initProvider.streamAnalyticsJobNameRef.policy`](#obj-specinitproviderstreamanalyticsjobnamerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderstreamanalyticsjobnamerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderstreamanalyticsjobnamerefpolicywithresolve)
+    * [`obj spec.initProvider.streamAnalyticsJobNameSelector`](#obj-specinitproviderstreamanalyticsjobnameselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitproviderstreamanalyticsjobnameselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitproviderstreamanalyticsjobnameselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitproviderstreamanalyticsjobnameselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitproviderstreamanalyticsjobnameselectorwithnamespace)
+      * [`obj spec.initProvider.streamAnalyticsJobNameSelector.policy`](#obj-specinitproviderstreamanalyticsjobnameselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitproviderstreamanalyticsjobnameselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitproviderstreamanalyticsjobnameselectorpolicywithresolve)
+    * [`obj spec.initProvider.tableRef`](#obj-specinitprovidertableref)
+      * [`fn withName(name)`](#fn-specinitprovidertablerefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidertablerefwithnamespace)
+      * [`obj spec.initProvider.tableRef.policy`](#obj-specinitprovidertablerefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidertablerefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidertablerefpolicywithresolve)
+    * [`obj spec.initProvider.tableSelector`](#obj-specinitprovidertableselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovidertableselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovidertableselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovidertableselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovidertableselectorwithnamespace)
+      * [`obj spec.initProvider.tableSelector.policy`](#obj-specinitprovidertableselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovidertableselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovidertableselectorpolicywithresolve)
+    * [`obj spec.initProvider.userRef`](#obj-specinitprovideruserref)
+      * [`fn withName(name)`](#fn-specinitprovideruserrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovideruserrefwithnamespace)
+      * [`obj spec.initProvider.userRef.policy`](#obj-specinitprovideruserrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovideruserrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovideruserrefpolicywithresolve)
+    * [`obj spec.initProvider.userSelector`](#obj-specinitprovideruserselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specinitprovideruserselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specinitprovideruserselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specinitprovideruserselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specinitprovideruserselectorwithnamespace)
+      * [`obj spec.initProvider.userSelector.policy`](#obj-specinitprovideruserselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specinitprovideruserselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specinitprovideruserselectorpolicywithresolve)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of OutputMSSQL
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"OutputMSSQLSpec defines the desired state of OutputMSSQL"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withAuthenticationMode
+
+```ts
+withAuthenticationMode(authenticationMode)
+```
+
+"The authentication mode for the Stream Output. Possible values are Msi and ConnectionString. Defaults to ConnectionString."
+
+### fn spec.forProvider.withDatabase
+
+```ts
+withDatabase(database)
+```
+
+"The MS SQL database name where the reference table exists. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withMaxBatchCount
+
+```ts
+withMaxBatchCount(maxBatchCount)
+```
+
+"The max batch count to write to the SQL Database. Defaults to 10000. Possible values are between 1 and 1073741824."
+
+### fn spec.forProvider.withMaxWriterCount
+
+```ts
+withMaxWriterCount(maxWriterCount)
+```
+
+"The max writer count for the SQL Database. Defaults to 1. Possible values are 0 which bases the writer count on the query partition and 1 which corresponds to a single writer."
+
+### fn spec.forProvider.withName
+
+```ts
+withName(name)
+```
+
+"The name of the Stream Output. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withResourceGroupName
+
+```ts
+withResourceGroupName(resourceGroupName)
+```
+
+"The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withServer
+
+```ts
+withServer(server)
+```
+
+"The SQL server url. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withStreamAnalyticsJobName
+
+```ts
+withStreamAnalyticsJobName(streamAnalyticsJobName)
+```
+
+"The name of the Stream Analytics Job. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withTable
+
+```ts
+withTable(table)
+```
+
+"Table in the database that the output points to. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withUser
+
+```ts
+withUser(user)
+```
+
+"Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if authentication_mode is ConnectionString."
+
+## obj spec.forProvider.databaseRef
+
+"Reference to a MSSQLDatabase in sql to populate database."
+
+### fn spec.forProvider.databaseRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.databaseRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.databaseRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.databaseRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.databaseRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.databaseSelector
+
+"Selector for a MSSQLDatabase in sql to populate database."
+
+### fn spec.forProvider.databaseSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.databaseSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.databaseSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.databaseSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.databaseSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.databaseSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.databaseSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.passwordSecretRef
+
+"Password used together with username, to login to the Microsoft SQL Server. Required if authentication_mode is ConnectionString."
+
+### fn spec.forProvider.passwordSecretRef.withKey
+
+```ts
+withKey(key)
+```
+
+
+
+### fn spec.forProvider.passwordSecretRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."
+
+## obj spec.forProvider.resourceGroupNameRef
+
+"Reference to a ResourceGroup in azure to populate resourceGroupName."
+
+### fn spec.forProvider.resourceGroupNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.resourceGroupNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.resourceGroupNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.resourceGroupNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.resourceGroupNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.resourceGroupNameSelector
+
+"Selector for a ResourceGroup in azure to populate resourceGroupName."
+
+### fn spec.forProvider.resourceGroupNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.resourceGroupNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.resourceGroupNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.resourceGroupNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.resourceGroupNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.resourceGroupNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.resourceGroupNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.serverRef
+
+"Reference to a MSSQLServer in sql to populate server."
+
+### fn spec.forProvider.serverRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.serverRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.serverRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.serverRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.serverRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.serverSelector
+
+"Selector for a MSSQLServer in sql to populate server."
+
+### fn spec.forProvider.serverSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.serverSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.serverSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.serverSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.serverSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.serverSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.serverSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.streamAnalyticsJobNameRef
+
+"Reference to a Job in streamanalytics to populate streamAnalyticsJobName."
+
+### fn spec.forProvider.streamAnalyticsJobNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.streamAnalyticsJobNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.streamAnalyticsJobNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.streamAnalyticsJobNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.streamAnalyticsJobNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.streamAnalyticsJobNameSelector
+
+"Selector for a Job in streamanalytics to populate streamAnalyticsJobName."
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.streamAnalyticsJobNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.streamAnalyticsJobNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.tableRef
+
+"Reference to a Table in storage to populate table."
+
+### fn spec.forProvider.tableRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.tableRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.tableRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.tableRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.tableRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.tableSelector
+
+"Selector for a Table in storage to populate table."
+
+### fn spec.forProvider.tableSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.tableSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.tableSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.tableSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.tableSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.tableSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.tableSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.userRef
+
+"Reference to a MSSQLServer in sql to populate user."
+
+### fn spec.forProvider.userRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.userRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.userRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.userRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.userRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.userSelector
+
+"Selector for a MSSQLServer in sql to populate user."
+
+### fn spec.forProvider.userSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.userSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.userSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.userSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.userSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.userSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.userSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withAuthenticationMode
+
+```ts
+withAuthenticationMode(authenticationMode)
+```
+
+"The authentication mode for the Stream Output. Possible values are Msi and ConnectionString. Defaults to ConnectionString."
+
+### fn spec.initProvider.withDatabase
+
+```ts
+withDatabase(database)
+```
+
+"The MS SQL database name where the reference table exists. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withMaxBatchCount
+
+```ts
+withMaxBatchCount(maxBatchCount)
+```
+
+"The max batch count to write to the SQL Database. Defaults to 10000. Possible values are between 1 and 1073741824."
+
+### fn spec.initProvider.withMaxWriterCount
+
+```ts
+withMaxWriterCount(maxWriterCount)
+```
+
+"The max writer count for the SQL Database. Defaults to 1. Possible values are 0 which bases the writer count on the query partition and 1 which corresponds to a single writer."
+
+### fn spec.initProvider.withName
+
+```ts
+withName(name)
+```
+
+"The name of the Stream Output. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withResourceGroupName
+
+```ts
+withResourceGroupName(resourceGroupName)
+```
+
+"The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withServer
+
+```ts
+withServer(server)
+```
+
+"The SQL server url. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withStreamAnalyticsJobName
+
+```ts
+withStreamAnalyticsJobName(streamAnalyticsJobName)
+```
+
+"The name of the Stream Analytics Job. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withTable
+
+```ts
+withTable(table)
+```
+
+"Table in the database that the output points to. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withUser
+
+```ts
+withUser(user)
+```
+
+"Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if authentication_mode is ConnectionString."
+
+## obj spec.initProvider.databaseRef
+
+"Reference to a MSSQLDatabase in sql to populate database."
+
+### fn spec.initProvider.databaseRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.databaseRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.databaseRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.databaseRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.databaseRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.databaseSelector
+
+"Selector for a MSSQLDatabase in sql to populate database."
+
+### fn spec.initProvider.databaseSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.databaseSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.databaseSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.databaseSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.databaseSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.databaseSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.databaseSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.passwordSecretRef
+
+"Password used together with username, to login to the Microsoft SQL Server. Required if authentication_mode is ConnectionString."
+
+### fn spec.initProvider.passwordSecretRef.withKey
+
+```ts
+withKey(key)
+```
+
+
+
+### fn spec.initProvider.passwordSecretRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."
+
+## obj spec.initProvider.resourceGroupNameRef
+
+"Reference to a ResourceGroup in azure to populate resourceGroupName."
+
+### fn spec.initProvider.resourceGroupNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.resourceGroupNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.resourceGroupNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.resourceGroupNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.resourceGroupNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.resourceGroupNameSelector
+
+"Selector for a ResourceGroup in azure to populate resourceGroupName."
+
+### fn spec.initProvider.resourceGroupNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.resourceGroupNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.resourceGroupNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.resourceGroupNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.resourceGroupNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.resourceGroupNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.resourceGroupNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.serverRef
+
+"Reference to a MSSQLServer in sql to populate server."
+
+### fn spec.initProvider.serverRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.serverRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.serverRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.serverRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.serverRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.serverSelector
+
+"Selector for a MSSQLServer in sql to populate server."
+
+### fn spec.initProvider.serverSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.serverSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.serverSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.serverSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.serverSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.serverSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.serverSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.streamAnalyticsJobNameRef
+
+"Reference to a Job in streamanalytics to populate streamAnalyticsJobName."
+
+### fn spec.initProvider.streamAnalyticsJobNameRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.streamAnalyticsJobNameRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.streamAnalyticsJobNameRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.streamAnalyticsJobNameRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.streamAnalyticsJobNameRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.streamAnalyticsJobNameSelector
+
+"Selector for a Job in streamanalytics to populate streamAnalyticsJobName."
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.streamAnalyticsJobNameSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.streamAnalyticsJobNameSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.tableRef
+
+"Reference to a Table in storage to populate table."
+
+### fn spec.initProvider.tableRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.tableRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.tableRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.tableRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.tableRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.tableSelector
+
+"Selector for a Table in storage to populate table."
+
+### fn spec.initProvider.tableSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.tableSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.tableSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.tableSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.tableSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.tableSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.tableSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.userRef
+
+"Reference to a MSSQLServer in sql to populate user."
+
+### fn spec.initProvider.userRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.initProvider.userRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.initProvider.userRef.policy
+
+"Policies for referencing."
+
+### fn spec.initProvider.userRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.userRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider.userSelector
+
+"Selector for a MSSQLServer in sql to populate user."
+
+### fn spec.initProvider.userSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.initProvider.userSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.initProvider.userSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.userSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.initProvider.userSelector.policy
+
+"Policies for selection."
+
+### fn spec.initProvider.userSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.initProvider.userSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

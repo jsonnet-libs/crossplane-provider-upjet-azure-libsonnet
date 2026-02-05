@@ -1,0 +1,912 @@
+---
+permalink: /upbound-provider-azure/namespaced/dataprotection/v1beta1/backupPolicyPostgreSQLFlexibleServer/
+---
+
+# dataprotection.v1beta1.backupPolicyPostgreSQLFlexibleServer
+
+"BackupPolicyPostgreSQLFlexibleServer is the Schema for the BackupPolicyPostgreSQLFlexibleServers API. Manages a Backup Policy to back up PostgreSQL Flexible Server."
+
+## Index
+
+* [`fn new(name)`](#fn-new)
+* [`obj metadata`](#obj-metadata)
+  * [`fn withAnnotations(annotations)`](#fn-metadatawithannotations)
+  * [`fn withAnnotationsMixin(annotations)`](#fn-metadatawithannotationsmixin)
+  * [`fn withClusterName(clusterName)`](#fn-metadatawithclustername)
+  * [`fn withCreationTimestamp(creationTimestamp)`](#fn-metadatawithcreationtimestamp)
+  * [`fn withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)`](#fn-metadatawithdeletiongraceperiodseconds)
+  * [`fn withDeletionTimestamp(deletionTimestamp)`](#fn-metadatawithdeletiontimestamp)
+  * [`fn withFinalizers(finalizers)`](#fn-metadatawithfinalizers)
+  * [`fn withFinalizersMixin(finalizers)`](#fn-metadatawithfinalizersmixin)
+  * [`fn withGenerateName(generateName)`](#fn-metadatawithgeneratename)
+  * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
+  * [`fn withLabels(labels)`](#fn-metadatawithlabels)
+  * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
+  * [`fn withName(name)`](#fn-metadatawithname)
+  * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
+  * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
+  * [`fn withOwnerReferencesMixin(ownerReferences)`](#fn-metadatawithownerreferencesmixin)
+  * [`fn withResourceVersion(resourceVersion)`](#fn-metadatawithresourceversion)
+  * [`fn withSelfLink(selfLink)`](#fn-metadatawithselflink)
+  * [`fn withUid(uid)`](#fn-metadatawithuid)
+* [`obj spec`](#obj-spec)
+  * [`fn withManagementPolicies(managementPolicies)`](#fn-specwithmanagementpolicies)
+  * [`fn withManagementPoliciesMixin(managementPolicies)`](#fn-specwithmanagementpoliciesmixin)
+  * [`obj spec.forProvider`](#obj-specforprovider)
+    * [`fn withBackupRepeatingTimeIntervals(backupRepeatingTimeIntervals)`](#fn-specforproviderwithbackuprepeatingtimeintervals)
+    * [`fn withBackupRepeatingTimeIntervalsMixin(backupRepeatingTimeIntervals)`](#fn-specforproviderwithbackuprepeatingtimeintervalsmixin)
+    * [`fn withRetentionRule(retentionRule)`](#fn-specforproviderwithretentionrule)
+    * [`fn withRetentionRuleMixin(retentionRule)`](#fn-specforproviderwithretentionrulemixin)
+    * [`fn withTimeZone(timeZone)`](#fn-specforproviderwithtimezone)
+    * [`fn withVaultId(vaultId)`](#fn-specforproviderwithvaultid)
+    * [`obj spec.forProvider.defaultRetentionRule`](#obj-specforproviderdefaultretentionrule)
+      * [`fn withLifeCycle(lifeCycle)`](#fn-specforproviderdefaultretentionrulewithlifecycle)
+      * [`fn withLifeCycleMixin(lifeCycle)`](#fn-specforproviderdefaultretentionrulewithlifecyclemixin)
+      * [`obj spec.forProvider.defaultRetentionRule.lifeCycle`](#obj-specforproviderdefaultretentionrulelifecycle)
+        * [`fn withDataStoreType(dataStoreType)`](#fn-specforproviderdefaultretentionrulelifecyclewithdatastoretype)
+        * [`fn withDuration(duration)`](#fn-specforproviderdefaultretentionrulelifecyclewithduration)
+    * [`obj spec.forProvider.retentionRule`](#obj-specforproviderretentionrule)
+      * [`fn withLifeCycle(lifeCycle)`](#fn-specforproviderretentionrulewithlifecycle)
+      * [`fn withLifeCycleMixin(lifeCycle)`](#fn-specforproviderretentionrulewithlifecyclemixin)
+      * [`fn withName(name)`](#fn-specforproviderretentionrulewithname)
+      * [`fn withPriority(priority)`](#fn-specforproviderretentionrulewithpriority)
+      * [`obj spec.forProvider.retentionRule.criteria`](#obj-specforproviderretentionrulecriteria)
+        * [`fn withAbsoluteCriteria(absoluteCriteria)`](#fn-specforproviderretentionrulecriteriawithabsolutecriteria)
+        * [`fn withDaysOfWeek(daysOfWeek)`](#fn-specforproviderretentionrulecriteriawithdaysofweek)
+        * [`fn withDaysOfWeekMixin(daysOfWeek)`](#fn-specforproviderretentionrulecriteriawithdaysofweekmixin)
+        * [`fn withMonthsOfYear(monthsOfYear)`](#fn-specforproviderretentionrulecriteriawithmonthsofyear)
+        * [`fn withMonthsOfYearMixin(monthsOfYear)`](#fn-specforproviderretentionrulecriteriawithmonthsofyearmixin)
+        * [`fn withScheduledBackupTimes(scheduledBackupTimes)`](#fn-specforproviderretentionrulecriteriawithscheduledbackuptimes)
+        * [`fn withScheduledBackupTimesMixin(scheduledBackupTimes)`](#fn-specforproviderretentionrulecriteriawithscheduledbackuptimesmixin)
+        * [`fn withWeeksOfMonth(weeksOfMonth)`](#fn-specforproviderretentionrulecriteriawithweeksofmonth)
+        * [`fn withWeeksOfMonthMixin(weeksOfMonth)`](#fn-specforproviderretentionrulecriteriawithweeksofmonthmixin)
+      * [`obj spec.forProvider.retentionRule.lifeCycle`](#obj-specforproviderretentionrulelifecycle)
+        * [`fn withDataStoreType(dataStoreType)`](#fn-specforproviderretentionrulelifecyclewithdatastoretype)
+        * [`fn withDuration(duration)`](#fn-specforproviderretentionrulelifecyclewithduration)
+    * [`obj spec.forProvider.vaultIdRef`](#obj-specforprovidervaultidref)
+      * [`fn withName(name)`](#fn-specforprovidervaultidrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidervaultidrefwithnamespace)
+      * [`obj spec.forProvider.vaultIdRef.policy`](#obj-specforprovidervaultidrefpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidervaultidrefpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidervaultidrefpolicywithresolve)
+    * [`obj spec.forProvider.vaultIdSelector`](#obj-specforprovidervaultidselector)
+      * [`fn withMatchControllerRef(matchControllerRef)`](#fn-specforprovidervaultidselectorwithmatchcontrollerref)
+      * [`fn withMatchLabels(matchLabels)`](#fn-specforprovidervaultidselectorwithmatchlabels)
+      * [`fn withMatchLabelsMixin(matchLabels)`](#fn-specforprovidervaultidselectorwithmatchlabelsmixin)
+      * [`fn withNamespace(namespace)`](#fn-specforprovidervaultidselectorwithnamespace)
+      * [`obj spec.forProvider.vaultIdSelector.policy`](#obj-specforprovidervaultidselectorpolicy)
+        * [`fn withResolution(resolution)`](#fn-specforprovidervaultidselectorpolicywithresolution)
+        * [`fn withResolve(resolve)`](#fn-specforprovidervaultidselectorpolicywithresolve)
+  * [`obj spec.initProvider`](#obj-specinitprovider)
+    * [`fn withBackupRepeatingTimeIntervals(backupRepeatingTimeIntervals)`](#fn-specinitproviderwithbackuprepeatingtimeintervals)
+    * [`fn withBackupRepeatingTimeIntervalsMixin(backupRepeatingTimeIntervals)`](#fn-specinitproviderwithbackuprepeatingtimeintervalsmixin)
+    * [`fn withRetentionRule(retentionRule)`](#fn-specinitproviderwithretentionrule)
+    * [`fn withRetentionRuleMixin(retentionRule)`](#fn-specinitproviderwithretentionrulemixin)
+    * [`fn withTimeZone(timeZone)`](#fn-specinitproviderwithtimezone)
+    * [`obj spec.initProvider.defaultRetentionRule`](#obj-specinitproviderdefaultretentionrule)
+      * [`fn withLifeCycle(lifeCycle)`](#fn-specinitproviderdefaultretentionrulewithlifecycle)
+      * [`fn withLifeCycleMixin(lifeCycle)`](#fn-specinitproviderdefaultretentionrulewithlifecyclemixin)
+      * [`obj spec.initProvider.defaultRetentionRule.lifeCycle`](#obj-specinitproviderdefaultretentionrulelifecycle)
+        * [`fn withDataStoreType(dataStoreType)`](#fn-specinitproviderdefaultretentionrulelifecyclewithdatastoretype)
+        * [`fn withDuration(duration)`](#fn-specinitproviderdefaultretentionrulelifecyclewithduration)
+    * [`obj spec.initProvider.retentionRule`](#obj-specinitproviderretentionrule)
+      * [`fn withLifeCycle(lifeCycle)`](#fn-specinitproviderretentionrulewithlifecycle)
+      * [`fn withLifeCycleMixin(lifeCycle)`](#fn-specinitproviderretentionrulewithlifecyclemixin)
+      * [`fn withName(name)`](#fn-specinitproviderretentionrulewithname)
+      * [`fn withPriority(priority)`](#fn-specinitproviderretentionrulewithpriority)
+      * [`obj spec.initProvider.retentionRule.criteria`](#obj-specinitproviderretentionrulecriteria)
+        * [`fn withAbsoluteCriteria(absoluteCriteria)`](#fn-specinitproviderretentionrulecriteriawithabsolutecriteria)
+        * [`fn withDaysOfWeek(daysOfWeek)`](#fn-specinitproviderretentionrulecriteriawithdaysofweek)
+        * [`fn withDaysOfWeekMixin(daysOfWeek)`](#fn-specinitproviderretentionrulecriteriawithdaysofweekmixin)
+        * [`fn withMonthsOfYear(monthsOfYear)`](#fn-specinitproviderretentionrulecriteriawithmonthsofyear)
+        * [`fn withMonthsOfYearMixin(monthsOfYear)`](#fn-specinitproviderretentionrulecriteriawithmonthsofyearmixin)
+        * [`fn withScheduledBackupTimes(scheduledBackupTimes)`](#fn-specinitproviderretentionrulecriteriawithscheduledbackuptimes)
+        * [`fn withScheduledBackupTimesMixin(scheduledBackupTimes)`](#fn-specinitproviderretentionrulecriteriawithscheduledbackuptimesmixin)
+        * [`fn withWeeksOfMonth(weeksOfMonth)`](#fn-specinitproviderretentionrulecriteriawithweeksofmonth)
+        * [`fn withWeeksOfMonthMixin(weeksOfMonth)`](#fn-specinitproviderretentionrulecriteriawithweeksofmonthmixin)
+      * [`obj spec.initProvider.retentionRule.lifeCycle`](#obj-specinitproviderretentionrulelifecycle)
+        * [`fn withDataStoreType(dataStoreType)`](#fn-specinitproviderretentionrulelifecyclewithdatastoretype)
+        * [`fn withDuration(duration)`](#fn-specinitproviderretentionrulelifecyclewithduration)
+  * [`obj spec.providerConfigRef`](#obj-specproviderconfigref)
+    * [`fn withKind(kind)`](#fn-specproviderconfigrefwithkind)
+    * [`fn withName(name)`](#fn-specproviderconfigrefwithname)
+  * [`obj spec.writeConnectionSecretToRef`](#obj-specwriteconnectionsecrettoref)
+    * [`fn withName(name)`](#fn-specwriteconnectionsecrettorefwithname)
+
+## Fields
+
+### fn new
+
+```ts
+new(name)
+```
+
+new returns an instance of BackupPolicyPostgreSQLFlexibleServer
+
+## obj metadata
+
+"ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create."
+
+### fn metadata.withAnnotations
+
+```ts
+withAnnotations(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+### fn metadata.withAnnotationsMixin
+
+```ts
+withAnnotationsMixin(annotations)
+```
+
+"Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withClusterName
+
+```ts
+withClusterName(clusterName)
+```
+
+"The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request."
+
+### fn metadata.withCreationTimestamp
+
+```ts
+withCreationTimestamp(creationTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withDeletionGracePeriodSeconds
+
+```ts
+withDeletionGracePeriodSeconds(deletionGracePeriodSeconds)
+```
+
+"Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
+
+### fn metadata.withDeletionTimestamp
+
+```ts
+withDeletionTimestamp(deletionTimestamp)
+```
+
+"Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers."
+
+### fn metadata.withFinalizers
+
+```ts
+withFinalizers(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+### fn metadata.withFinalizersMixin
+
+```ts
+withFinalizersMixin(finalizers)
+```
+
+"Must be empty before the object is deleted from the registry. Each entry is an identifier for the responsible component that will remove the entry from the list. If the deletionTimestamp of the object is non-nil, entries in this list can only be removed. Finalizers may be processed and removed in any order.  Order is NOT enforced because it introduces significant risk of stuck finalizers. finalizers is a shared field, any actor with permission can reorder it. If the finalizer list is processed in order, then this can lead to a situation in which the component responsible for the first finalizer in the list is waiting for a signal (field value, external system, or other) produced by a component responsible for a finalizer later in the list, resulting in a deadlock. Without enforced ordering finalizers are free to order amongst themselves and are not vulnerable to ordering changes in the list."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withGenerateName
+
+```ts
+withGenerateName(generateName)
+```
+
+"GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.\n\nIf this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).\n\nApplied only if Name is not specified. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency"
+
+### fn metadata.withGeneration
+
+```ts
+withGeneration(generation)
+```
+
+"A sequence number representing a specific generation of the desired state. Populated by the system. Read-only."
+
+### fn metadata.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+### fn metadata.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withName
+
+```ts
+withName(name)
+```
+
+"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"
+
+### fn metadata.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \"default\" namespace, but \"default\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\n\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"
+
+### fn metadata.withOwnerReferences
+
+```ts
+withOwnerReferences(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+### fn metadata.withOwnerReferencesMixin
+
+```ts
+withOwnerReferencesMixin(ownerReferences)
+```
+
+"List of objects depended by this object. If ALL objects in the list have been deleted, this object will be garbage collected. If this object is managed by a controller, then an entry in this list will point to this controller, with the controller field set to true. There cannot be more than one managing controller."
+
+**Note:** This function appends passed data to existing values
+
+### fn metadata.withResourceVersion
+
+```ts
+withResourceVersion(resourceVersion)
+```
+
+"An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.\n\nPopulated by the system. Read-only. Value must be treated as opaque by clients and . More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency"
+
+### fn metadata.withSelfLink
+
+```ts
+withSelfLink(selfLink)
+```
+
+"SelfLink is a URL representing this object. Populated by the system. Read-only.\n\nDEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release."
+
+### fn metadata.withUid
+
+```ts
+withUid(uid)
+```
+
+"UID is the unique in time and space value for this object. It is typically generated by the server on successful creation of a resource and is not allowed to change on PUT operations.\n\nPopulated by the system. Read-only. More info: http://kubernetes.io/docs/user-guide/identifiers#uids"
+
+## obj spec
+
+"BackupPolicyPostgreSQLFlexibleServerSpec defines the desired state of BackupPolicyPostgreSQLFlexibleServer"
+
+### fn spec.withManagementPolicies
+
+```ts
+withManagementPolicies(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+### fn spec.withManagementPoliciesMixin
+
+```ts
+withManagementPoliciesMixin(managementPolicies)
+```
+
+"THIS IS A BETA FIELD. It is on by default but can be opted out\nthrough a Crossplane feature flag.\nManagementPolicies specify the array of actions Crossplane is allowed to\ntake on the managed and external resources.\nSee the design doc for more information: https://github.com/crossplane/crossplane/blob/499895a25d1a1a0ba1604944ef98ac7a1a71f197/design/design-doc-observe-only-resources.md?plain=1#L223\nand this one: https://github.com/crossplane/crossplane/blob/444267e84783136daa93568b364a5f01228cacbe/design/one-pager-ignore-changes.md"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider
+
+
+
+### fn spec.forProvider.withBackupRepeatingTimeIntervals
+
+```ts
+withBackupRepeatingTimeIntervals(backupRepeatingTimeIntervals)
+```
+
+"Specifies a list of repeating time interval. It supports weekly back. It should follow ISO 8601 repeating time interval format. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withBackupRepeatingTimeIntervalsMixin
+
+```ts
+withBackupRepeatingTimeIntervalsMixin(backupRepeatingTimeIntervals)
+```
+
+"Specifies a list of repeating time interval. It supports weekly back. It should follow ISO 8601 repeating time interval format. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withRetentionRule
+
+```ts
+withRetentionRule(retentionRule)
+```
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withRetentionRuleMixin
+
+```ts
+withRetentionRuleMixin(retentionRule)
+```
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.withTimeZone
+
+```ts
+withTimeZone(timeZone)
+```
+
+"Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.withVaultId
+
+```ts
+withVaultId(vaultId)
+```
+
+"The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created."
+
+## obj spec.forProvider.defaultRetentionRule
+
+"A default_retention_rule block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.defaultRetentionRule.withLifeCycle
+
+```ts
+withLifeCycle(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.defaultRetentionRule.withLifeCycleMixin
+
+```ts
+withLifeCycleMixin(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.defaultRetentionRule.lifeCycle
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.defaultRetentionRule.lifeCycle.withDataStoreType
+
+```ts
+withDataStoreType(dataStoreType)
+```
+
+"The type of data store. The only possible value is VaultStore. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.defaultRetentionRule.lifeCycle.withDuration
+
+```ts
+withDuration(duration)
+```
+
+"The retention duration up to which the backups are to be retained in the data stores. It should follow ISO 8601 duration format. Changing this forces a new resource to be created."
+
+## obj spec.forProvider.retentionRule
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.withLifeCycle
+
+```ts
+withLifeCycle(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.withLifeCycleMixin
+
+```ts
+withLifeCycleMixin(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.retentionRule.withName
+
+```ts
+withName(name)
+```
+
+"Specifies the name of the retention rule. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.withPriority
+
+```ts
+withPriority(priority)
+```
+
+"Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created."
+
+## obj spec.forProvider.retentionRule.criteria
+
+"A criteria block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withAbsoluteCriteria
+
+```ts
+withAbsoluteCriteria(absoluteCriteria)
+```
+
+"Possible values are AllBackup, FirstOfDay, FirstOfWeek, FirstOfMonth and FirstOfYear. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withDaysOfWeek
+
+```ts
+withDaysOfWeek(daysOfWeek)
+```
+
+"Possible values are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withDaysOfWeekMixin
+
+```ts
+withDaysOfWeekMixin(daysOfWeek)
+```
+
+"Possible values are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.retentionRule.criteria.withMonthsOfYear
+
+```ts
+withMonthsOfYear(monthsOfYear)
+```
+
+"Possible values are January, February, March, April, May, June, July, August, September, October, November and December. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withMonthsOfYearMixin
+
+```ts
+withMonthsOfYearMixin(monthsOfYear)
+```
+
+"Possible values are January, February, March, April, May, June, July, August, September, October, November and December. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.retentionRule.criteria.withScheduledBackupTimes
+
+```ts
+withScheduledBackupTimes(scheduledBackupTimes)
+```
+
+"Specifies a list of backup times for backup in the RFC3339 format. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withScheduledBackupTimesMixin
+
+```ts
+withScheduledBackupTimesMixin(scheduledBackupTimes)
+```
+
+"Specifies a list of backup times for backup in the RFC3339 format. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.retentionRule.criteria.withWeeksOfMonth
+
+```ts
+withWeeksOfMonth(weeksOfMonth)
+```
+
+"Possible values are First, Second, Third, Fourth and Last. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.criteria.withWeeksOfMonthMixin
+
+```ts
+withWeeksOfMonthMixin(weeksOfMonth)
+```
+
+"Possible values are First, Second, Third, Fourth and Last. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.forProvider.retentionRule.lifeCycle
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.lifeCycle.withDataStoreType
+
+```ts
+withDataStoreType(dataStoreType)
+```
+
+"The type of data store. The only possible value is VaultStore. Changing this forces a new resource to be created."
+
+### fn spec.forProvider.retentionRule.lifeCycle.withDuration
+
+```ts
+withDuration(duration)
+```
+
+"The retention duration up to which the backups are to be retained in the data stores. It should follow ISO 8601 duration format. Changing this forces a new resource to be created."
+
+## obj spec.forProvider.vaultIdRef
+
+"Reference to a BackupVault in dataprotection to populate vaultId."
+
+### fn spec.forProvider.vaultIdRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+### fn spec.forProvider.vaultIdRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referenced object"
+
+## obj spec.forProvider.vaultIdRef.policy
+
+"Policies for referencing."
+
+### fn spec.forProvider.vaultIdRef.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.vaultIdRef.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.forProvider.vaultIdSelector
+
+"Selector for a BackupVault in dataprotection to populate vaultId."
+
+### fn spec.forProvider.vaultIdSelector.withMatchControllerRef
+
+```ts
+withMatchControllerRef(matchControllerRef)
+```
+
+"MatchControllerRef ensures an object with the same controller reference\nas the selecting object is selected."
+
+### fn spec.forProvider.vaultIdSelector.withMatchLabels
+
+```ts
+withMatchLabels(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+### fn spec.forProvider.vaultIdSelector.withMatchLabelsMixin
+
+```ts
+withMatchLabelsMixin(matchLabels)
+```
+
+"MatchLabels ensures an object with matching labels is selected."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.forProvider.vaultIdSelector.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace for the selector"
+
+## obj spec.forProvider.vaultIdSelector.policy
+
+"Policies for selection."
+
+### fn spec.forProvider.vaultIdSelector.policy.withResolution
+
+```ts
+withResolution(resolution)
+```
+
+"Resolution specifies whether resolution of this reference is required.\nThe default is 'Required', which means the reconcile will fail if the\nreference cannot be resolved. 'Optional' means this reference will be\na no-op if it cannot be resolved."
+
+### fn spec.forProvider.vaultIdSelector.policy.withResolve
+
+```ts
+withResolve(resolve)
+```
+
+"Resolve specifies when this reference should be resolved. The default\nis 'IfNotPresent', which will attempt to resolve the reference only when\nthe corresponding field is not present. Use 'Always' to resolve the\nreference on every reconcile."
+
+## obj spec.initProvider
+
+"THIS IS A BETA FIELD. It will be honored\nunless the Management Policies feature flag is disabled.\nInitProvider holds the same fields as ForProvider, with the exception\nof Identifier and other resource reference fields. The fields that are\nin InitProvider are merged into ForProvider when the resource is created.\nThe same fields are also added to the terraform ignore_changes hook, to\navoid updating them after creation. This is useful for fields that are\nrequired on creation, but we do not desire to update them after creation,\nfor example because of an external controller is managing them, like an\nautoscaler."
+
+### fn spec.initProvider.withBackupRepeatingTimeIntervals
+
+```ts
+withBackupRepeatingTimeIntervals(backupRepeatingTimeIntervals)
+```
+
+"Specifies a list of repeating time interval. It supports weekly back. It should follow ISO 8601 repeating time interval format. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withBackupRepeatingTimeIntervalsMixin
+
+```ts
+withBackupRepeatingTimeIntervalsMixin(backupRepeatingTimeIntervals)
+```
+
+"Specifies a list of repeating time interval. It supports weekly back. It should follow ISO 8601 repeating time interval format. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withRetentionRule
+
+```ts
+withRetentionRule(retentionRule)
+```
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.withRetentionRuleMixin
+
+```ts
+withRetentionRuleMixin(retentionRule)
+```
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.withTimeZone
+
+```ts
+withTimeZone(timeZone)
+```
+
+"Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created."
+
+## obj spec.initProvider.defaultRetentionRule
+
+"A default_retention_rule block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.defaultRetentionRule.withLifeCycle
+
+```ts
+withLifeCycle(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.defaultRetentionRule.withLifeCycleMixin
+
+```ts
+withLifeCycleMixin(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.defaultRetentionRule.lifeCycle
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.defaultRetentionRule.lifeCycle.withDataStoreType
+
+```ts
+withDataStoreType(dataStoreType)
+```
+
+"The type of data store. The only possible value is VaultStore. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.defaultRetentionRule.lifeCycle.withDuration
+
+```ts
+withDuration(duration)
+```
+
+"The retention duration up to which the backups are to be retained in the data stores. It should follow ISO 8601 duration format. Changing this forces a new resource to be created."
+
+## obj spec.initProvider.retentionRule
+
+"One or more retention_rule blocks as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.withLifeCycle
+
+```ts
+withLifeCycle(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.withLifeCycleMixin
+
+```ts
+withLifeCycleMixin(lifeCycle)
+```
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.retentionRule.withName
+
+```ts
+withName(name)
+```
+
+"Specifies the name of the retention rule. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.withPriority
+
+```ts
+withPriority(priority)
+```
+
+"Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created."
+
+## obj spec.initProvider.retentionRule.criteria
+
+"A criteria block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withAbsoluteCriteria
+
+```ts
+withAbsoluteCriteria(absoluteCriteria)
+```
+
+"Possible values are AllBackup, FirstOfDay, FirstOfWeek, FirstOfMonth and FirstOfYear. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withDaysOfWeek
+
+```ts
+withDaysOfWeek(daysOfWeek)
+```
+
+"Possible values are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withDaysOfWeekMixin
+
+```ts
+withDaysOfWeekMixin(daysOfWeek)
+```
+
+"Possible values are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.retentionRule.criteria.withMonthsOfYear
+
+```ts
+withMonthsOfYear(monthsOfYear)
+```
+
+"Possible values are January, February, March, April, May, June, July, August, September, October, November and December. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withMonthsOfYearMixin
+
+```ts
+withMonthsOfYearMixin(monthsOfYear)
+```
+
+"Possible values are January, February, March, April, May, June, July, August, September, October, November and December. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.retentionRule.criteria.withScheduledBackupTimes
+
+```ts
+withScheduledBackupTimes(scheduledBackupTimes)
+```
+
+"Specifies a list of backup times for backup in the RFC3339 format. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withScheduledBackupTimesMixin
+
+```ts
+withScheduledBackupTimesMixin(scheduledBackupTimes)
+```
+
+"Specifies a list of backup times for backup in the RFC3339 format. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.initProvider.retentionRule.criteria.withWeeksOfMonth
+
+```ts
+withWeeksOfMonth(weeksOfMonth)
+```
+
+"Possible values are First, Second, Third, Fourth and Last. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.criteria.withWeeksOfMonthMixin
+
+```ts
+withWeeksOfMonthMixin(weeksOfMonth)
+```
+
+"Possible values are First, Second, Third, Fourth and Last. Changing this forces a new resource to be created."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.initProvider.retentionRule.lifeCycle
+
+"A life_cycle block as defined below. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.lifeCycle.withDataStoreType
+
+```ts
+withDataStoreType(dataStoreType)
+```
+
+"The type of data store. The only possible value is VaultStore. Changing this forces a new resource to be created."
+
+### fn spec.initProvider.retentionRule.lifeCycle.withDuration
+
+```ts
+withDuration(duration)
+```
+
+"The retention duration up to which the backups are to be retained in the data stores. It should follow ISO 8601 duration format. Changing this forces a new resource to be created."
+
+## obj spec.providerConfigRef
+
+"ProviderConfigReference specifies how the provider that will be used to\ncreate, observe, update, and delete this managed resource should be\nconfigured."
+
+### fn spec.providerConfigRef.withKind
+
+```ts
+withKind(kind)
+```
+
+"Kind of the referenced object."
+
+### fn spec.providerConfigRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referenced object."
+
+## obj spec.writeConnectionSecretToRef
+
+"WriteConnectionSecretToReference specifies the namespace and name of a\nSecret to which any connection details for this managed resource should\nbe written. Connection details frequently include the endpoint, username,\nand password required to connect to the managed resource."
+
+### fn spec.writeConnectionSecretToRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the secret."

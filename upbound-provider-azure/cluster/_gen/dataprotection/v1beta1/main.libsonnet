@@ -1,0 +1,16 @@
+{
+  local d = (import 'doc-util/main.libsonnet'),
+  '#':: d.pkg(name='v1beta1', url='', help=''),
+  backupInstanceBlobStorage: (import 'backupInstanceBlobStorage.libsonnet'),
+  backupInstanceDisk: (import 'backupInstanceDisk.libsonnet'),
+  backupInstanceKubernetesCluster: (import 'backupInstanceKubernetesCluster.libsonnet'),
+  backupInstancePostgreSQL: (import 'backupInstancePostgreSQL.libsonnet'),
+  backupInstancePostgreSQLFlexibleServer: (import 'backupInstancePostgreSQLFlexibleServer.libsonnet'),
+  backupPolicyBlobStorage: (import 'backupPolicyBlobStorage.libsonnet'),
+  backupPolicyDisk: (import 'backupPolicyDisk.libsonnet'),
+  backupPolicyKubernetesCluster: (import 'backupPolicyKubernetesCluster.libsonnet'),
+  backupPolicyPostgreSQL: (import 'backupPolicyPostgreSQL.libsonnet'),
+  backupPolicyPostgreSQLFlexibleServer: (import 'backupPolicyPostgreSQLFlexibleServer.libsonnet'),
+  backupVault: (import 'backupVault.libsonnet'),
+  resourceGuard: (import 'resourceGuard.libsonnet'),
+}
